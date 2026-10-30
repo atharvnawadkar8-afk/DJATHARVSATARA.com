@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090b12" />
+  <meta name="description" content="Download DJ ATHARV SATARA music releases." />
+  <title>DJ ATHARV SATARA | Music Downloads</title>
+  <style>
+    :root {
+      --bg: #080a11; --panel: rgba(20, 24, 39, .86); --text: #f7f7fb;
+      --muted: #a8afc4; --gold: #f5cc75; --green: #8df5c4; --line: rgba(255,255,255,.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+      background: radial-gradient(ellipse at 15% 0%, #153c3c 0, transparent 35%),
+                  radial-gradient(ellipse at 90% 10%, #44301b 0, transparent 28%), var(--bg);
+      min-height: 100vh;
+    }
+    .wrap { width: min(1120px, 92%); margin: auto; }
+    header { padding: 26px 0 18px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:1.4px; }
+    .logo { width:46px; height:46px; border-radius:14px; display:grid; place-items:center; color:#10121a;
+      background:linear-gradient(135deg,var(--gold),#fff0bd); box-shadow:0 0 28px #f5cc7533; font-size:20px; }
+    .tag { color:var(--muted); font-size:12px; letter-spacing:2px; text-transform:uppercase; margin-top:4px; }
+    .pill { border:1px solid var(--line); border-radius:999px; padding:9px 13px; color:var(--green); font-size:12px; }
+    .hero { padding:66px 0 45px; text-align:center; }
+    .eyebrow { color:var(--green); letter-spacing:4px; font-size:12px; font-weight:800; }
+    h1 { font-size:clamp(38px, 7vw, 76px); line-height:1.02; margin:18px 0; letter-spacing:-2px; }
+    h1 span { color:var(--gold); text-shadow:0 0 34px #f5cc7522; }
+    .hero p { max-width:620px; margin:0 auto; color:var(--muted); line-height:1.7; }
+    .actions { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:27px; }
+    button, .button { border:0; border-radius:12px; padding:12px 17px; font-weight:800; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px; }
+    .primary { color:#10121a; background:linear-gradient(135deg,var(--gold),#fff0bd); }
+    .secondary { background:#ffffff0b; color:var(--text); border:1px solid var(--line); }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:15px; margin:28px 0 17px; }
+    h2 { margin:0; font-size:25px; }
+    .section-head p { margin:6px 0 0; color:var(--muted); font-size:14px; }
+    .search { width:min(280px,100%); border:1px solid var(--line); border-radius:12px; background:#ffffff08; color:var(--text); padding:12px 14px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .card { background:var(--panel); border:1px solid var(--line); border-radius:20px; overflow:hidden; box-shadow:0 18px 45px #0002; }
+    .cover { height:155px; display:grid; place-items:center; background:linear-gradient(135deg,#183f3d,#29213c 60%,#533d21); position:relative; }
+    .cover::before { content:""; position:absolute; inset:0; opacity:.18; background:repeating-linear-gradient(135deg,transparent 0 14px,#fff 15px 16px); }
+    .disc { position:relative; width:88px; height:88px; border-radius:50%; border:8px solid #0c0d13; background:radial-gradient(circle,#e8d7a1 0 7%,#111 8% 20%,#2e333e 21% 24%,#090a0e 25%); box-shadow:0 8px 30px #0008; }
+    .disc::after { content:""; position:absolute; inset:14px; border:1px solid #ffffff30; border-radius:50%; }
+    .card-body { padding:17px; }
+    .track-title { margin:0 0 7px; font-size:18px; overflow-wrap:anywhere; }
+    .meta { color:var(--muted); font-size:12px; margin-bottom:14px; }
+    audio { width:100%; height:38px; margin:0 0 13px; }
+    .card-actions { display:flex; gap:8px; }
+    .card-actions a { flex:1; font-size:13px; }
+    .empty { text-align:center; padding:35px 16px; border:1px dashed var(--line); border-radius:18px; color:var(--muted); grid-column:1/-1; }
+    .admin { margin:36px 0; padding:22px; border:1px solid var(--line); border-radius:20px; background:#ffffff06; }
+    .admin h2 { font-size:20px; }
+    .admin p, .hint { color:var(--muted); font-size:13px; line-height:1.6; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:15px; }
+    input[type="text"], input[type="file"] { width:100%; padding:12px; color:var(--text); border:1px solid var(--line); border-radius:11px; background:#080a11; }
+    input[type="file"] { grid-column:1/-1; }
+    .notice { display:none; margin-top:12px; padding:10px 12px; border-radius:10px; background:#8df5c41a; color:var(--green); font-size:13px; }
+    footer { border-top:1px solid var(--line); margin-top:42px; padding:25px 0 35px; color:var(--muted); text-align:center; font-size:12px; }
+    @media(max-width:760px) { .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .hero { padding-top:45px; } }
+    @media(max-width:520px) { header { align-items:flex-start; } .pill { display:none; } .grid,.form-grid { grid-template-columns:1fr; } .section-head { align-items:stretch; flex-direction:column; } input[type="file"] { grid-column:auto; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand"><div class="logo">♪</div><div><div>DJ ATHARV SATARA</div><div class="tag">Official music downloads</div></div></div>
+      <div class="pill">✦ NEW DROPS • HIGH ENERGY</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">THE OFFICIAL MUSIC HUB</div>
+        <h1>FEEL THE BEAT.<br><span>OWN THE SOUND.</span></h1>
+        <p>Discover the latest DJ edits, mixes and music releases from DJ ATHARV SATARA. Preview a track and download it in one click.</p>
+        <div class="actions">
+          <a class="button primary" href="#music">♫ Explore Music</a>
+          <a class="button secondary" href="#upload">＋ Add a Release</a>
+        </div>
+      </section>
+
+      <section id="music">
+        <div class="section-head">
+          <div><h2>Latest Releases</h2><p>Your next favourite beat starts here.</p></div>
+          <input class="search" id="search" type="search" placeholder="Search tracks..." aria-label="Search tracks">
+        </div>
+        <div class="grid" id="tracks"></div>
+      </section>
+
+      <section class="admin" id="upload">
+        <h2>＋ Add Music to This Page</h2>
+        <p>Select an audio file and give it a title. This demo lets you preview and download tracks in this browser. <strong>It does not upload music to the internet or make it visible to everyone.</strong> For a public website, upload the files to your hosting/storage service and publish the updated track list.</p>
+        <form id="uploadForm" class="form-grid">
+          <input id="title" type="text" placeholder="Track name (e.g. Satara Mix 2026)" required>
+          <input id="artist" type="text" placeholder="Artist / mix type (optional)">
+          <input id="file" type="file" accept="audio/*,.mp3,.wav,.m4a,.ogg,.aac,.flac" required>
+          <button class="primary" type="submit">＋ Add Track on This Device</button>
+        </form>
+        <div class="notice" id="notice"></div>
+        <p class="hint">Tip: for a public site, use a host that supports file storage (such as a static hosting service plus object storage). Never put secret API keys in this HTML file.</p>
+      </section>
+    </main>
+    <footer>© <span id="year"></span> DJ ATHARV SATARA • Music for the people, beats for every moment.</footer>
+  </div>
+
+  <script>
+    const tracksEl = document.getElementById('tracks');
+    const searchEl = document.getElementById('search');
+    const form = document.getElementById('uploadForm');
+    const notice = document.getElementById('notice');
+    const tracks = [];
+    let nextId = 1;
+
+    function render() {
+      const q = searchEl.value.trim().toLowerCase();
+      const filtered = tracks.filter(t => (t.title + ' ' + t.artist).toLowerCase().includes(q));
+      tracksEl.innerHTML = '';
+      if (!filtered.length) {
+        tracksEl.innerHTML = `<div class="empty">${tracks.length ? 'No tracks match your search.' : 'Your first release is waiting here. Add a music file below to get started.'}</div>`;
+        return;
+      }
+      filtered.forEach(t => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        const cover = document.createElement('div');
+        cover.className = 'cover';
+        cover.innerHTML = '<div class="disc"></div>';
+        const body = document.createElement('div');
+        body.className = 'card-body';
+        const title = document.createElement('h3');
+        title.className = 'track-title';
+        title.textContent = t.title;
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.textContent = t.artist || 'DJ ATHARV SATARA';
+        const audio = document.createElement('audio');
+        audio.controls = true;
+        audio.preload = 'metadata';
+        audio.src = t.url;
+        const actions = document.createElement('div');
+        actions.className = 'card-actions';
+        const download = document.createElement('a');
+        download.className = 'button primary';
+        download.textContent = '⬇ Download';
+        download.href = t.url;
+        download.download = t.filename;
+        const remove = document.createElement('button');
+        remove.className = 'button secondary';
+        remove.type = 'button';
+        remove.textContent = 'Remove';
+        remove.addEventListener('click', () => {
+          URL.revokeObjectURL(t.url);
+          tracks.splice(tracks.findIndex(x => x.id === t.id), 1);
+          render();
+        });
+        actions.append(download, remove);
+        body.append(title, meta, audio, actions);
+        card.append(cover, body);
+        tracksEl.append(card);
+      });
+    }
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const file = document.getElementById('file').files[0];
+      const title = document.getElementById('title').value.trim();
+      const artist = document.getElementById('artist').value.trim();
+      if (!file || !title) return;
+      const url = URL.createObjectURL(file);
+      tracks.unshift({ id: nextId++, title, artist, url, filename: file.name });
+      form.reset();
+      notice.textContent = 'Track added on this device. It will not appear for other visitors unless you publish the audio file online.';
+      notice.style.display = 'block';
+      render();
+    });
+
+    searchEl.addEventListener('input', render);
+    document.getElementById('year').textContent = new Date().getFullYear();
+    render();
+  </script>
+</body>
+</html>
